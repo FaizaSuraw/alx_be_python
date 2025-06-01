@@ -6,17 +6,17 @@ time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
 
 match priority:
     case "high":
-        message = f"Reminder: '{task}' is a high priority task"
+        base_message = f"Reminder: '{task}' is a high priority task"
     case "medium":
-        message = f"Reminder: '{task}' is a medium priority task"
+        base_message = f"Reminder: '{task}' is a medium priority task"
     case "low":
-        message = f"Note: '{task}' is a low priority task"
+        base_message = f"Reminder: '{task}' is a low priority task"
     case _:
-        message = f"Reminder: '{task}' has an unknown priority"
+        base_message = f"Reminder: '{task}' has an unknown priority"
 
 if time_bound == "yes":
-    message += " that requires immediate attention today!"
-elif priority == "low":
-    message += ". Consider completing it when you have free time."
+    base_message += " that requires immediate attention today!"
+else:
+    base_message += "."
 
-print("\n" + message)
+print(base_message)
